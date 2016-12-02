@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Routing page - error if visible 
+{% endblock %}
+
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="https://www.gov.uk">Home</a></li>
+      <li><a href="">Start</a></li>
+      <!--li>Subsection</li-->
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        {% if serviceName %} {{ serviceName }} {% endif %}: error
+      </h1>
+
+      <p>Sorry there has been an error. </p>
+
+       <p>This form will take you about 20 minutes to complete. </p>
+
+      <p>
+        <a class="button button-start" href="00-summary" role="button">Back to the summary page</a>
+      </p>
+
+    </div>
+  </div>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Your new posting
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <p>Here's how I route depeneding on user input</p>
+      <ol>
+        <li>set up a generic routing page, here 00-page-routing.html</li>
+        <li>add an action and method to the form code, here 'action="00-routing" method="get"'</li>
+        <li>Add id="nextPage" and value="[your-next-page]" to where you want things to change, here  input id="post-details" type="radio" name="nextPage" value="02-2-your-overseas-post-details"</li>
+        <li>Replace the button with an input, here input type="submit" class="button" value="Continue"</li>
+        <li>This will redirect the user to whatever you set the value to be. Note that if you don't set the value, it will error out </li>
+      </ol>
+
+
+      <form class="form" action="00-routing" method="get">
+
+      <a class="link-back" href="/01-1-your-details">Back</a>
+
+        <label class="heading-small">Where is your next posting? </label>
+    
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="visuallyhidden">Is your next posting overseas or in the UK?</legend>
+                   
+            <label for="overseas-yes" class="block-label">
+              <input id="post-details" type="radio" name="nextPage" value="02-2-your-overseas-post-details">
+              Overseas
+            </label>
+            <label for="overseas-no" class="block-label">
+              <input id="post-details" type="radio" name="nextPage" value="02-2a-your-uk-post-details">
+              UK
+            </label>
+        </fieldset>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue">
+        </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
