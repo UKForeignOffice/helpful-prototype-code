@@ -20,7 +20,6 @@ So, to connect to an existing heroku app:
 4. Then you can test by going:  
 `git push heroku`
  
- * …Assuming you called it “heroku”
  * This will push everything you have committed locally out to heroku, and tell you when it’s done so you can then browse to the app URL and check it out
 
 Note:
