@@ -15,17 +15,18 @@ So, to connect to an existing heroku app:
 `heroku login`
  
 3. Add an existing heroku app, as opposed to creating a new one – replace your-application-name here:  
-'git remote add heroku https://git.heroku.com/your-application-name.git'
- 
-Note:
- * “heroku” in this command is nothing more than the name you are assigning this remote repository. You could call it anything you like, or be more specific e.g. heroku-mb-prototype – but whatever you do you’ll have to type every time you want to push to it. So just calling it “heroku” is simplest
- * You can just edit the .git url above for your application. You’ll also find this if you log in to heroku on the web and go into the app settings and look for “Git URL”
- 
+`git remote add heroku https://git.heroku.com/your-application-name.git`
+
 4. Then you can test by going:  
 `git push heroku`
  
  * …Assuming you called it “heroku”
  * This will push everything you have committed locally out to heroku, and tell you when it’s done so you can then browse to the app URL and check it out
+
+Note:
+ * “heroku” in this command is nothing more than the name you are assigning this remote repository. You could call it anything you like, or be more specific e.g. heroku-mb-prototype – but whatever you do you’ll have to type every time you want to push to it. So just calling it “heroku” is simplest
+ * You can just edit the .git url above for your application. You’ll also find this if you log in to heroku on the web and go into the app settings and look for “Git URL”
+ 
  
  
 ## Other useful heroku / remote repo related commands
@@ -52,7 +53,7 @@ Given this, if you like to live life on the edge then you could hook up your cod
  
 It also follows that the name “origin” is just a convention for referring to github.com, based on the assumption that it’s your primary online code storage.
  
-And finally – getting more help
+## Getting more help
  
 If git remote isn’t quite clear enough and you need more info, use the ‘verbose’ mode of the command which will tell you the different URLs in question:  
 `git remote -v`
@@ -68,8 +69,8 @@ Or
 `heroku <command> --help`
  
 e.g:  
-`heroku help apps`
-`heroku apps --help`
+`heroku help apps`  
+`heroku apps --help`  
  
 Happy prototyping!
 
