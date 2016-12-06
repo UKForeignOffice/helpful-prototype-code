@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Legalisation prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+
+<h1 class="heading-xlarge">Session test - data to post to next pages via session, includes hidden inputs and routing</h1>
+
+
+<div class="form-group">
+
+<p>So here we are collecting some data from the user, and also posting some hidden data using input type=hidden. This is being posted to the /session-test page which will handle page branching (UK or not UK) and also retrieve the data from the query string and store it in the session. Once stored in the session it can be used by any page thereafter. See routes.js for the code that does that.</p>
+
+    <form id="is-uk" method="get" action="/session-test">
+
+            <div class="form-group ">
+                <fieldset class="inline" aria-required="true" role="radiogroup">
+                    <legend class="form-label-bold">Is the return address in the UK?</legend>
+                    
+                    <label class="block-label " for="radio-yes">
+                        <input id="radio-yes"  type="radio" name="is_uk" value="true" >
+                        Yes
+                    </label>
+                    <label class="block-label " for="radio-no">
+                        <input id="radio-no" type="radio" name="is_uk" value="false" >
+                        No
+                    </label>
+                </fieldset>
+            </div>
+
+    <div class="form-group" id="legend_first_name">
+        <label for="first-name" class="form-label-bold">First name</label>
+        <fieldset>
+            <input class="form-control" id="first-name" type="text"  autocomplete="off" name="first_name" aria-required="true"  value="">
+        </fieldset>
+    </div>
+
+
+    <div class="form-group " id="legend_last_name">
+        <label for="last-name"  class="form-label-bold">Last name</label>
+        <fieldset>
+            <input class="form-control" id="last-name" autocomplete="off" type="text"  name="last_name" aria-required="true"  value="">
+        </fieldset>
+    </div>
+
+
+            <div class="form-group">
+                <button class="button" type="submit">Continue</button>
+            </div>
+
+
+<!-- These are hidden inputs, mainly FYI rather than recommended. They are not shown to the user but you can fill them with any data you want, be that hardcoded (as here) or dynamic. Note you could just as easily do this in the routes.js file, it depends on how you want to approach it. I would incline towards having it all in routes.js. Originally I was using hidden inputs to pass data in the query string from one page to the next, before getting sessions working. So they're not really needed now, but leaving them here as an example -->
+<input type="hidden" name="telephone" value ="909090">
+<input type="hidden" name="email" value ="session@session.com">
+
+
+
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+

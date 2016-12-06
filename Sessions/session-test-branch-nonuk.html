@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Legalisation prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+<h1 class="heading-xlarge">Non-UK branch - you're not in the UK</h1>
+
+Answers retrieved from the session after a branch redirect, note no query string present in the URL (have a look at your command line where you running the app too, you will see it has started logging) <Br><br>
+
+
+First name? {{ first_name }} <br>
+Last name? {{ last_name }} <br>
+Tel (hidden input)? {{ telephone }} <br>
+Email (hidden input)? {{ email }} <br>
+
+<br>
+<A href="session-test-next" class="Button">Next page</A>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
