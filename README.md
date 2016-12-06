@@ -14,6 +14,10 @@ Examples of APIs. The first one includes json to csv and download features
 
 A way to use a single file to do all your branching / routing, instead of on a page by page basis
 
+### Command line
+
+Useful commands, tips, help
+
 ### Dynamic content folder
 
 Changing parts of a page depending on variables being present, empty etc, using in-page logic. 
