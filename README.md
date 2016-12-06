@@ -14,6 +14,10 @@ Examples of APIs. The first one includes json to csv and download features
 
 A way to use a single file to do all your branching / routing, instead of on a page by page basis
 
+### Dynamic content folder
+
+Changing parts of a page depending on variables being present, empty etc, using in-page logic. 
+
 ### Sessions folder
 
 How to store data in the session, retrieve it, and clear it down. User journey starts at session-test-inputs
