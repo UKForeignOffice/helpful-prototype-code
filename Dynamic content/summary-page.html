@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Legalisation prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+
+
+<div class="form-group">
+    <h1 class="heading-large" style="margin-top: 0.25em; width: 70%;">Example summary page with variable content</h1>
+
+<p>This page will not work in isolation as it is expecting a lot of variables which would be set in the corresponding routes.js file. However, looking at the code you can see a few examples of the use of if / else to display different information, including pulling in an include file
+
+    <h2 class="heading-medium">Personal details</h2>
+
+    <table id="review-personal-details" class="summary-table">
+        <tbody>
+        <tr>
+            <td class="summary-table-cell-label summary-label">Name</td>
+            <td id="summary-name" class="summary-table-cell-content"><span class="mobile-format">{{ first_name }} {{ last_name }}</span></td>
+            <td class="summary-table-cell-link"><a class="summary_change_links" href="/update-your-basic-details">Change<span class="visually-hidden"> your name</span></a></td>
+        </tr>
+        <tr>
+            <td class="summary-table-cell-label summary-label">Email</td>
+            <td id="summary-email" class="summary-table-cell-content"><span class="mobile-format">
+
+<!-- this one checks whether an email was present, and either says "None provided" or displays the email. So it's good for any optional questions you have where you don't just want an empty cell if the user skipped it. The variable data would be in the route.js file -->
+
+            {%  if email == ""  %} None provided
+ 
+            {% else %}
+
+            {{ email }}
+
+            {% endif %}
+
+            </span></td>
+            <td class="summary-table-cell-link"><a class="summary_change_links" href="/update-your-basic-details">Change<span class="visually-hidden"> your email</span></a></td>
+        </tr>
+        <tr>
+            <td class="summary-table-cell-label summary-label">Telephone</td>
+            <td id="summary-telephone" class="summary-table-cell-content"><span class="mobile-format">{{ telephone }}</span></td>
+            <td class="summary-table-cell-link"><a class="summary_change_links" href="/update-your-basic-details">Change<span class="visually-hidden"> your telephone number</span></a></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+    <h2 class="heading-medium">Return addresses</h2>
+    <table id="review-address" class="summary-table">
+        <tbody>
+        <tr>
+            <td class="summary-table-cell-label summary-label">Return address for successfully legalised documents</td>
+            <td id="summary-address1" class="summary-table-cell-content">
+                <span class="mobile-format">
+                    {{ full_name }}, <br>
+                    
+                    <!-- this one checks whether an organisation was present, then in this case *deliberately* returns a blank if not. This gets round the problem of displaying a redundant comma if I were to just return organisation on its own - the comma is only included as part of the "else...." logic. The variable data would be in the route.js file -->
+                    {%  if organisation == ""  %} 
+ 
+                    {% else %}
+
+                    {{ organisation }}, <br>
+
+                    {% endif %}
+                    {{ house_name }} {{ street }}, <br>
+					{{ town }}, <br>
+					{{ county }} {{ postcode }}, <br>
+					{{ country }}
+                </span>
+            </td>
+            <td class="summary-table-cell-link"><a class="summary_change_links" href="/change-your-address-details?address_type=main">Change<span class="visually-hidden"> your successful legalisation return address</span></a></td>
+        </tr>
+        <tr>
+            <td class="summary-table-cell-label summary-label" >Return address if we can't legalise your documents
+
+                
+            <td id="summary-address2" class="summary-table-cell-content" ><span class="mobile-format">
+                
+<!-- this one checks whether is_same is true, which is a question about whether the second address is the same as the first. If it's the same the page shows "Same as above", if its different I pull in an include file that contains the alternate address. I added that to a separate file so I can re-use it easily on other pages. The variable data for both this page and the include file would be in the route.js file -->                
+            {%  if is_same == "true"  %} Same as above
+ 
+            {% else %}
+
+            {% include "includes/address_alt.html" %}
+
+            {% endif %}
+
+
+            </span></td>
+            
+            <td class="summary-table-cell-link" ><a class="summary_change_links" href="/change-your-address-details?address_type=alternative">Change<span class="visually-hidden"> your unsuccessful legalisation return address</span></a></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <h2 class="heading-medium">Document details</h2>
+    <table id="review-document-details" class="summary-table">
+        <tbody>
+        <tr>
+            <td class="summary-table-cell-label summary-label">Total number of documents</td>
+            <td id="summary-docCount" class="summary-table-cell-content">
+                    <span class="mobile-format">
+					{{ documentCount }}
+                    </span>
+            </td>
+            <td class="summary-table-cell-link" ><a class="summary_change_links" href="/update-how-many-documents">Change<span class="visually-hidden"> the number of documents you want to legalise</span></a></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <h2 class="heading-medium">Postage</h2>
+    <table id="review-postage" class="summary-table">
+        <tbody>
+        <tr>
+            <td class="summary-table-cell-label summary-label">Send delivery method</td>
+            <td id="summary-send" class="summary-table-cell-content"><span class="mobile-format">{{ send_postage }}</span></td>
+            <td class="summary-table-cell-link">
+                <a class="summary_change_links" href="/modify-postage-send-options">Change<span class="visually-hidden"> your send postage method</span></a>
+            </td>
+        </tr><tr>
+            <td class="summary-table-cell-label summary-label">Return delivery method</td>
+            <td id="summary-return" class="summary-table-cell-content"><span class="mobile-format">{{ return_postage }}</span></td>
+            <td class="summary-table-cell-link">
+                
+                <a class="summary_change_links" href="/modify-postage-return-options">Change<span class="visually-hidden"> your return postage method</span></a>
+                
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2 class="heading-medium">Additional information</h2>
+    <table class="summary-table">
+        <tbody>
+        
+        <tr>
+            <td class="summary-table-cell-label summary-label">Your reference</td>
+            <td id="summary-ref" class="summary-table-cell-content"><span class="mobile-format">
+
+<!--  Another optional question - customer's own reference. "None provided" if the user did not enter one, otherwise show the reference. Saving blank cells again. The variable data would be in the route.js file -->
+            {%  if customer_ref == ""  %} None provided
+ 
+            {% else %}
+
+            {{ customer_ref }}
+
+            {% endif %}
+
+
+
+
+            </span></td>
+            <td class="summary-table-cell-link">
+                <a class="summary_change_links" href="/update-additional-information">Change<span class="visually-hidden"> your application reference number</span></a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="summary-table-cell-label summary-label">Feedback consent</td>
+            <td class="summary-table-cell-content"><span class="mobile-format">{{ feedback_consent }}</span></td>
+            <td class="summary-table-cell-link">
+                <a class="summary_change_links" href="/update-additional-information">Change<span class="visually-hidden"> your feedback consent answer</span></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h2 class="heading-medium">Cost</h2>
+    <table  class="cost-table summary-table">
+        <tbody>
+        <tr>
+            <td>Cost to legalise 1 document</td>
+            <td id="summary-doccosts" class="summary-table-cell-content">
+                <span class="mobile-format"> {{ cost_legalise }}</span>
+            </td>
+            <td class="summary-table-cell-link"></td>
+        </tr>
+        <tr>
+
+            <td>Cost of postage</td>
+            <td id="summary-cost" class="summary-table-cell-content"><span class="mobile-format">{{ cost_post }}</span></td>
+
+            <td class="summary-table-cell-link"></td>
+        </tr>
+        <tr>
+            <td class="summary-table-cell-label ">Total cost</td>
+            <td class="summary-table-cell-content"><span class="mobile-format"><strong>{{ cost_total }}</strong></span></td>
+            <td class="summary-table-cell-link"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<a href="declaration"  class="button" role="button">Continue</a>
+
+
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+
