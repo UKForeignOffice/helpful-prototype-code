@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Using JavaScript to go back
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a class="link-back" href="[most obvious page]" onclick="history.go(-1)">Back</a>
+
+      <h1>Making your back button work programmatically</h1>
+      <p>Simply add onclick="history.go(-1)" to your a reference. If you are feeling keen, you can add the most likely page people will have come from to the href - this will be for non JavaScript users.</p>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

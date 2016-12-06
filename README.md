@@ -10,6 +10,11 @@ Each new helpful bit should be added as a file with explanations commented out.
 
 Examples of APIs. The first one includes json to csv and download features
 
+### Back button
+
+Program your back button so you don't need to code it per page
+
+
 ### Branching folder
 
 A way to use a single file to do all your branching / routing, instead of on a page by page basis
