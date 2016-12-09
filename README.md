@@ -19,6 +19,11 @@ Program your back button so you don't need to code it per page
 
 A way to use a single file to do all your branching / routing, instead of on a page by page basis
 
+
+### Calculation folder
+
+A simple calculator to take user inputs - no. of documents, postage choice - and calculate the total. Ensures 2 decimals are always displayed (£35.50 instead of £35.5), and caters for singular and plural of "document". Uses session data.
+
 ### Command line
 
 Useful commands, tips, help
