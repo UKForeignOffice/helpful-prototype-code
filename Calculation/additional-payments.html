@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Legalisation prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+    <h1 class="heading-xlarge">Additional payments for legalisation</h1>
+
+       <form action="/additional-payments-confirm" method="get" id="letsBegin" novalidate>
+        <input type="hidden" id="transaction_country" name="transaction[country]" value="" />
+
+      This page is for additional payments only. To make a new application you need to use the <a href="https://www.gov.uk/get-document-legalised">legalisation online application service</a>. 
+
+  <p>
+  <h2 class="form-label-bold">How many additional documents do you need to pay for?</h2>
+  <label for="transaction_dc">
+    <span class="form-hint">For the standard postal service each document costs &pound;30</span>
+    <input type="text" name="numberofdocuments" id="transaction_dc" size="10" required/>
+  </label>
+</p>
+
+
+
+  <h2 class="form-label-bold">Do you need to pay any additional postage for the return of your documents?</h2>
+
+            <div class="form-group ">
+                <fieldset class="inline">
+     
+                    <div class="" id="business-question">
+
+                        <fieldset class="inline" aria-required="true" role="radiogroup">
+
+                            <label class="block-label " data-target="business-info"
+                                   for="radio-indent-1">
+                                <input id="radio-indent-1" type="radio" name="extrapostage" value="Yes" > Yes
+                            </label>
+
+                            <label class="block-label " for="radio-indent-2">
+                                <input id="radio-indent-2" type="radio" name="extrapostage" value="No" > No
+                            </label>
+                        </fieldset>
+                        <div class="panel panel-border-narrow   js-hidden" id="business-info">
+<!--- hidden postage options -->
+
+
+  
+  
+	Select a postage option:  
+
+      <label  class="block-label"for="transaction_postage_option_uk">
+        <input type="radio" id="transaction_postage_option_uk" required name="postagechoice" value="uk" /> <span class="heading-small">My return address is in the UK</span><br>Pay for the tracked courier service to the UK or British Forces Post Office including Isle of Man and Channel Islands - &pound;5.50
+      </label>
+ 
+  
+
+      <label class="block-label" for="transaction_postage_option_europe">
+        <input type="radio" id="transaction_postage_option_europe" required name="postagechoice" value="europe" /><span class="heading-small">My return address is in Europe</span><br>Pay for the tracked courier service to Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia &amp; Herzegovina, Georgia, Liechtenstein, Kazakhstan, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey, Ukraine) - &pound;14.50
+      </label>
+  
+  
+
+      <label class="block-label" for="transaction_postage_option_rest-of-world">
+        <input type="radio" id="transaction_postage_option_rest-of-world" required name="postagechoice" value="rest-of-world" /><span class="heading-small">My return address is in another country</span><br>Pay for the tracked courier service to the rest of the world - &pound;25
+      </label>
+  
+
+
+
+<!-- end hidden postage options -->
+
+                        </div>
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+
+
+
+  <p>
+  <h2 class="form-label-bold">What is your email address?</h2>
+
+ <label for="transaction_email_address">
+    <span class="form-hint">Enter your email so we can send you a payment confirmation</span>
+    <input type="email" name="additionalpaymentsemail" id="transaction_email_address" size="25" required />
+  </label>
+  
+</p>
+
+
+
+<div class="panel panel-border-wide">
+<p>If not used within 28 days your online payment will expire and no funds will be debited from your card or account</p>
+</div>
+
+
+          <p id="get-started" class="get-started group">
+            <button class="button" type="submit" >Calculate total</button>
+          </p>
+        </form>
+
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+

@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Legalisation prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <div class="govuk-box-highlight">
+        <h1 class="bold-large">Payment complete</h1>
+        <p>
+          Your FCO reference number is <br>
+          <strong class="heading-medium">8814810437896170</strong>
+        </p>
+      </div>
+
+
+<p>Thank you for your order from the Foreign &amp; Commonwealth Office. We've taken pre-authorisation for the following:</p>
+
+  <ul class="list list-bullet">
+    <li>amount: &pound;{{ totalcost2decimals }} for {{ numberofdocuments }} 
+
+            {%  if numberofdocuments == 1  %} document
+            {% else %} documents
+            {% endif %}
+            {%  if postagechoice == "uk"  %} plus postage to the UK
+            {%  elif postagechoice == "europe"  %} post postage to Europe
+            {%  elif postagechoice == "rest-of-world"  %} plus postage to the rest of the world
+            {% else %} without any additional postage charge
+            {% endif %}
+            </li>
+    <li>card type: MasterCard</li>
+    <li>date: 6 June 2016</li>
+    <li>FCO reference: 8814810437896170</li>
+    <!-- Ian confirmed we can hide this one <li>payment reference: PAYLEGALISATIONPOST-UK-ECOMM-20161206-5</li> -->
+    <!-- <li>Service: pay-legalisation-post</li> -->
+
+</ul>
+
+<p>We've emailed a confirmation to {{ additionalpaymentsemail }}. If you don't receive the email please check your spam folder.</p>
+
+
+
+<h2 class="heading-large">What to do next</h2>
+
+<p>Email the Legalisation Office at <A href="mailto:EpaymentEnquiries@FCO.gov.uk">EpaymentEnquiries@fco.gov.uk</A> with the following information:</p>
+
+  <ul class="list list-bullet">
+  <li>the 16-digit FCO reference number above</li>
+  <li>your existing case number - this will start with the letter 'A' and be followed by a combination of letters and numbers eg A-C-16-1212-8274-064C</li>
+  </ul>
+
+      <section class="done">
+          <p>
+            <a href="https://www.gov.uk/done/pay-legalisation-post" class="button transaction-done" rel="external">Finished</a>
+          </p>
+        </section>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+

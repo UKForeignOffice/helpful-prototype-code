@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Legalisation prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+{% include "includes/phase_banner_beta.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+    <h1 class="heading-xlarge">Additional payments for legalisation</h1>
+       <form action="/additional-payments-done" method="get" id="letsBegin" novalidate>
+        <p>It costs &pound;{{ totalcost2decimals }} for {{ numberofdocuments }} 
+
+            {%  if numberofdocuments == 1  %} document
+            {% else %} documents
+            {% endif %}
+
+            {%  if postagechoice == "uk"  %} plus tracked courier service to the UK or British Forces Post Office including Isle of Man and Channel Islands.
+            {%  elif postagechoice == "europe"  %} plus tracked courier service to Europe (excluding Albania, Armenia, Azerbaijan, Belarus, Bosnia &amp; Herzegovina, Georgia, Liechtenstein, Kazakhstan, Macedonia, Moldova, Montenegro, Russia, Serbia, Turkey, Ukraine).
+            {%  elif postagechoice == "rest-of-world"  %} plus tracked courier service to the rest of the world. 
+            {% else %} without any additional postage charge.
+            {% endif %}
+
+
+</p>
+
+
+
+
+            <button class="button" type="submit" >Pay</button>
+            <span style="
+            display: block; 
+            margin-top: 0.5em; 
+            font-size: 14px; 
+            line-height: 1.42857;
+            font-weight: 400; 
+            text-transform: none; 
+            color: #6f777b;
+            "> on Barclaycard</span>
+        </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+
