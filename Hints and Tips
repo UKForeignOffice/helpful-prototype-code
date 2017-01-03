@@ -1,0 +1,11 @@
+
+# Redirect
+
+If you are looking to create new versions of a prototype, this route will give you a redirect to the most recent version (if you update it).
+
+
+router.get('/copy-forms',function (req, res){
+
+res.redirect('copy-forms-4')
+
+});
