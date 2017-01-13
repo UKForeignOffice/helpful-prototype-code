@@ -1,0 +1,34 @@
+// IN ROUTES.JS
+
+// add your routes here
+ router.get('*', function (req, res, next) {
+       if (req.query['next-page']) {
+         res.redirect(req.query['next-page']);
+       } else {
+         next();
+       }
+     });
+
+// ON THE PAGE - add name="next-page" and value="RELATIVE OR ABSOLUTE URL"
+
+        <form class="form" action="4"> <!-- action goes to current page -->
+
+                  <div class="form-group">
+                    <fieldset>
+
+                      <legend class="visuallyhidden">
+
+                      </legend>
+
+                      <label for="radio-part-2" class="block-label">
+                        <input id="radio-part-2" type="radio"  name="next-page" value="sprint4/5">
+                        Yes
+                      </label>
+
+                      <label for="radio-part-3" class="block-label">
+                        <input id="radio-part-3" type="radio" name="next-page" value="sprint4/11">
+                        No
+                      </label>
+
+                    </fieldset>
+                  </div>
