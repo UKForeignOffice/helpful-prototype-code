@@ -32,6 +32,11 @@ Useful commands, tips, help
 
 Changing parts of a page depending on variables being present, empty etc, using in-page logic. 
 
+### Screenshots folder
+
+Tools for creating screenshots automatically
+
+
 ### Sessions folder
 
 How to store data in the session, retrieve it, and clear it down. User journey starts at session-test-inputs
